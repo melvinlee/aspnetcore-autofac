@@ -11,9 +11,12 @@ before_build:
   - cmd: dotnet restore
 
 build_script:
-  - cmd: dotnet build
+  - cmd: dotnet publish
+  
+after_build:
+  - 7z a AspnetCore.zip %APPVEYOR_BUILD_FOLDER%\src\bin\Debug\netcoreapp2.0\publish\*.*
   
 artifacts:
- - path: '**\*.dll'
-   name: Aspnetcore-autofac
+ - path: AspnetCore.zip
+   name: AspnetCore
    type: zip
