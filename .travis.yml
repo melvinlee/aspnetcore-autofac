@@ -1,0 +1,10 @@
+language: csharp
+solution: aspnetcore-autofac.sln
+
+mono: none
+dotnet: 2.1.3
+script:
+ - dotnet restore
+ 
+ ignore:
+  - *.md
