@@ -1,0 +1,19 @@
+skip_commits:
+  files:
+    - README.md
+
+image: Visual Studio 2017
+
+before_build:
+  # Display .NET Core version
+  - cmd: dotnet --version
+  # Display minimal restore text
+  - cmd: dotnet restore
+
+build_script:
+  - cmd: dotnet build
+  
+artifacts:
+ - path: '**\*.dll'
+   name: Aspnetcore-autofac
+   type: zip
